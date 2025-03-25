@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadProducts } from '../features/productSlice';
-import ProductCard from '../components/ProductCard';
+import { loadProducts } from '../features/productSlice.jsx';
+import ProductCard from '../components/ProductCard.jsx';
 
 export default function Home() {
   const dispatch = useDispatch();
