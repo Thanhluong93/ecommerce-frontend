@@ -9,10 +9,12 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route index element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="checkout" element={<Checkout />} />
       </Routes>
     </BrowserRouter>
   );
 }
+
+export default App;  // Thêm dòng này nếu file là App.js
