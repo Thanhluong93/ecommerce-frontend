@@ -1,22 +1,21 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadProducts } from '../features/productSlice.jsx';
-import ProductCard from '../components/ProductCard.jsx';
+import React from 'react';
+import './Home.css';
 
-export default function Home() {
-  const dispatch = useDispatch();
-  const { items, status } = useSelector(state => state.products);
-
-  useEffect(() => {
-    dispatch(loadProducts());
-  }, [dispatch]);
-
+const Home = () => {
   return (
-    <div className="product-grid">
-      {status === 'loading' && <p>Loading...</p>}
-      {items.map(product => (
-        <ProductCard key={product._id} product={product} />
-      ))}
+    <div className="home">
+      <h1>Welcome to Our Website</h1>
+      <p>This is the homepage of our amazing application.</p>
+      <div className="features">
+        <h2>Features</h2>
+        <ul>
+          <li>User-friendly interface</li>
+          <li>Responsive design</li>
+          <li>Easy navigation</li>
+        </ul>
+      </div>
     </div>
   );
-}
+};
+
+export default Home;

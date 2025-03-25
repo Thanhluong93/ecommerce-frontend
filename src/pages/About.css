@@ -1,0 +1,33 @@
+.about {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .about h1 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+
+  .about p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #34495e;
+  }
+
+  .team {
+    margin-top: 2rem;
+  }
+
+  .team-members {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .member {
+    flex: 1;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+  }

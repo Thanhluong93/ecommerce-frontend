@@ -1,20 +1,24 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home.jsx';
-import Login from './pages/Login.jsx';
-import Checkout from './pages/Checkout.jsx';
-import Header from './components/Header';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import About from './pages/About';
+import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="checkout" element={<Checkout />} />
-      </Routes>
-    </BrowserRouter>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
-export default App;  // Thêm dòng này nếu file là App.js
+export default App;
