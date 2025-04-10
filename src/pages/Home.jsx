@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
+import articles from '../data/articles';
 
 const Home = () => {
   return (
@@ -15,7 +17,7 @@ const Home = () => {
       <div className="post-feature-info">
         <a href="/" className="post-category">The news</a>
         <h2>
-          <a href="post_1.html" className="post-feature-title post-title">
+          <a href="articles/1" className="post-feature-title post-title">
             Bitcoin trên đà lần đầu tiên cán mốc 90.000 USD
           </a>
         </h2>
@@ -24,7 +26,7 @@ const Home = () => {
           chưa từng có, đặc biệt là Bitcoin, khi đồng tiền này đã vượt qua mức giá
           80.000 USD và hiện tại đang tiến gần đến ngưỡng 90.000 USD.
         </p>
-        <a href="/" className="post-author">
+        <a href="/article" className="post-author">
           <img
             src="https://cdn.dribbble.com/userupload/17485458/file/original-14df872c516d361bb61de8ea029df5d8.png?resize=1024x1448"
             alt=""
@@ -48,9 +50,9 @@ const Home = () => {
             className="post-image"
           />
         </a>
-        <a href="/" className="post-category">Shop</a>
+        <a href="articles/2" className="post-category">Shop</a>
         <h3>
-          <a href="/" className="post-title">
+          <a href="articles/2" className="post-title">
             How to choose the best bike for spring in Australia
           </a>
         </h3>
@@ -83,7 +85,7 @@ const Home = () => {
         </a>
         <a href="/" className="post-category">Shop</a>
         <h3>
-          <a href="post.html?id=2" className="post-title">
+          <a href="/" className="post-title">
             How to choose the best bike for spring in Australia
           </a>
         </h3>
@@ -141,7 +143,7 @@ const Home = () => {
       <div className="post-item">
         <a href="/" className="post-media">
           <img
-            src="https://cdn.dribbble.com/userupload/17474398/file/original-636d2679cca02654092ec05b47ca1db0.png?resize=1024x770"
+            src="/images/anh5.jpg"
             alt=""
             className="post-image"
           />
@@ -173,7 +175,7 @@ const Home = () => {
       <div className="post-item">
         <a href="/" className="post-media">
           <img
-            src="https://cdn.dribbble.com/userupload/17474398/file/original-636d2679cca02654092ec05b47ca1db0.png?resize=1024x770"
+            src="/images/anh4.jpg"
             alt=""
             className="post-image"
           />
@@ -205,7 +207,7 @@ const Home = () => {
       <div className="post-item">
         <a href="/" className="post-media">
           <img
-            src="https://cdn.dribbble.com/userupload/17474398/file/original-636d2679cca02654092ec05b47ca1db0.png?resize=1024x770"
+            src="/images/anh3.jpg"
             alt=""
             className="post-image"
           />
@@ -224,7 +226,7 @@ const Home = () => {
         </p>
         <a href="/" className="post-author">
           <img
-            src="https://cdn.dribbble.com/userupload/17485458/file/original-14df872c516d361bb61de8ea029df5d8.png?resize=1024x1448"
+            src="/images/anh3.jpg"
             alt=""
             className="post-author-image"
           />
@@ -237,7 +239,7 @@ const Home = () => {
       <div className="post-item">
         <a href="/" className="post-media">
           <img
-            src="https://cdn.dribbble.com/userupload/17474398/file/original-636d2679cca02654092ec05b47ca1db0.png?resize=1024x770"
+            src="/images/anh2.jpg"
             alt=""
             className="post-image"
           />
@@ -267,9 +269,27 @@ const Home = () => {
         </a>
       </div>
       {/* Add more posts as necessary */}
+      {articles.map((article) => (
+  <div key={article.id} className="post-item article-card">
+    <Link to={`/articles/${article.id}`} className="article-link">
+      <img className="post-image" src={article.image} alt="ảnh minh họa" />
+      <p className="post-category post-category-new">{article.category}</p>
+      <h2 className="post-title">{article.title}</h2>
+      <p className="post-desc">{article.description}</p>
+
+      <div className="post-author">
+        <img className="post-author-image" src={article.author.avatar} alt="avatar" />
+        <div className="post-author-infor">
+          <span className="post-author-name">{article.author.name}</span>
+          <time className="post-author-time">{article.author.time}</time>
+        </div>
+      </div>
+    </Link>
+  </div>
+))}
+
     </div>
   </div>
   );
 };
-
 export default Home;
