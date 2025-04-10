@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 import { createRoot } from "react-dom/client"; // ✅ thêm dòng này
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 import "./Navbar.css";
+const user = JSON.parse(localStorage.getItem("user"));
 
 export default function Header() {
   useEffect(() => {
@@ -40,7 +42,22 @@ export default function Header() {
     <li><Link to="/contact">Liên hệ</Link></li>
     <li><Link to="#">LAN</Link></li>
     <li><Link to="#">Laptop</Link></li>
+    {user ? (
+  <li className="login-button">
+    <span>👋 {user.name}</span>
+    <button onClick={() => { localStorage.removeItem("user"); window.location.reload(); }}>Đăng xuất</button>
+  </li>
+) : (
+  <li className="login-button">
+    <Link to="/login">
+      <FontAwesomeIcon icon={faUser} style={{ marginRight: "5px", marginTop: "5px" }} />
+      Đăng nhập
+    </Link>
+  </li>
+)}
+
   </ul>
+
   {isMobileMenuOpen && (
   <div className="overlay" onClick={() => setIsMobileMenuOpen(false)}></div>
 )}
@@ -52,39 +69,6 @@ export default function Header() {
             <li>
               <Link to="/">Trang Chủ</Link>
             </li>
-            {/* <li>
-              <Link to="/home">Đăng nhập</Link>
-              <ul className="submenu">
-                <li>
-                  <Link to="#">Menu 2.1</Link>
-                  <ul className="submenu">
-                    <li>
-                      <Link to="#">Menu 2.2.1</Link>
-                      <ul className="submenu">
-                        <li><Link to="#">Menu 2.2.1</Link></li>
-                        <li><Link to="#">Menu 2.2.2</Link></li>
-                        <li><Link to="#">Menu 2.2.3</Link></li>
-                        <li><Link to="#">Menu 2.2.4</Link></li>
-                      </ul>
-                    </li>
-                    <li><Link to="#">Menu 2.2.2</Link></li>
-                    <li>
-                      <Link to="#">Menu 2.2.3</Link>
-                      <ul className="submenu">
-                        <li><Link to="#">Menu 2.2.1</Link></li>
-                        <li><Link to="#">Menu 2.2.2</Link></li>
-                        <li><Link to="#">Menu 2.2.3</Link></li>
-                        <li><Link to="#">Menu 2.2.4</Link></li>
-                      </ul>
-                    </li>
-                    <li><Link to="#">Menu 2.2.4</Link></li>
-                  </ul>
-                </li>
-                <li><Link to="#">Menu 2.2</Link></li>
-                <li><Link to="#">Menu 2.3</Link></li>
-                <li><Link to="#">Menu 2.4</Link></li>
-              </ul>
-            </li> */}
             <li><Link to="#">LAN</Link></li>
             <li><Link to="#">Laptop</Link></li>
             <li>
@@ -106,7 +90,15 @@ export default function Header() {
             </li>
             <li><Link to="/contact">Liên hệ</Link></li>
             <li><Link to="/register">Đăng ký</Link></li>
-            <li><Link to="/">Đăng nhập</Link></li>
+            {user ? (
+  <li className="use-infor">
+    <span className="user-name">👤 {user.name}</span>
+    <button className="logout-button" onClick={() => { localStorage.removeItem("user"); window.location.reload(); }}>Đăng xuất</button>
+  </li>
+) : (
+  <li><Link to="/login">Đăng nhập</Link></li>
+)}
+
           </ul>
         </nav>
       </div>
