@@ -138,6 +138,134 @@ const Home = () => {
           </div>
         </a>
       </div>
+      <div className="post-item">
+        <a href="/" className="post-media">
+          <img
+            src="https://cdn.dribbble.com/userupload/17474398/file/original-636d2679cca02654092ec05b47ca1db0.png?resize=1024x770"
+            alt=""
+            className="post-image"
+          />
+        </a>
+        <a href="/" className="post-category">Shop</a>
+        <h3>
+          <a href="post.html?id=3" className="post-title">
+            How to choose the best bike for spring in Australia
+          </a>
+        </h3>
+        <p className="post-desc">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis,
+          voluptatem? Quaerat, itaque fugit voluptate, eveniet animi aliquam non
+          quisquam ipsum soluta nisi magni expedita inventore facilis maiores
+          repudiandae, ullam nihil!
+        </p>
+        <a href="/" className="post-author">
+          <img
+            src="https://cdn.dribbble.com/userupload/17485458/file/original-14df872c516d361bb61de8ea029df5d8.png?resize=1024x1448"
+            alt=""
+            className="post-author-image"
+          />
+          <div className="post-author-infor">
+            <h4 className="post-author-name">By MrThanh</h4>
+            <time dateTime="" className="post-author-time">Just now</time>
+          </div>
+        </a>
+      </div>
+      <div className="post-item">
+        <a href="/" className="post-media">
+          <img
+            src="https://cdn.dribbble.com/userupload/17474398/file/original-636d2679cca02654092ec05b47ca1db0.png?resize=1024x770"
+            alt=""
+            className="post-image"
+          />
+        </a>
+        <a href="/" className="post-category">Shop</a>
+        <h3>
+          <a href="post.html?id=3" className="post-title">
+            How to choose the best bike for spring in Australia
+          </a>
+        </h3>
+        <p className="post-desc">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis,
+          voluptatem? Quaerat, itaque fugit voluptate, eveniet animi aliquam non
+          quisquam ipsum soluta nisi magni expedita inventore facilis maiores
+          repudiandae, ullam nihil!
+        </p>
+        <a href="/" className="post-author">
+          <img
+            src="https://cdn.dribbble.com/userupload/17485458/file/original-14df872c516d361bb61de8ea029df5d8.png?resize=1024x1448"
+            alt=""
+            className="post-author-image"
+          />
+          <div className="post-author-infor">
+            <h4 className="post-author-name">By MrThanh</h4>
+            <time dateTime="" className="post-author-time">Just now</time>
+          </div>
+        </a>
+      </div>
+      <div className="post-item">
+        <a href="/" className="post-media">
+          <img
+            src="https://cdn.dribbble.com/userupload/17474398/file/original-636d2679cca02654092ec05b47ca1db0.png?resize=1024x770"
+            alt=""
+            className="post-image"
+          />
+        </a>
+        <a href="/" className="post-category">Shop</a>
+        <h3>
+          <a href="post.html?id=3" className="post-title">
+            How to choose the best bike for spring in Australia
+          </a>
+        </h3>
+        <p className="post-desc">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis,
+          voluptatem? Quaerat, itaque fugit voluptate, eveniet animi aliquam non
+          quisquam ipsum soluta nisi magni expedita inventore facilis maiores
+          repudiandae, ullam nihil!
+        </p>
+        <a href="/" className="post-author">
+          <img
+            src="https://cdn.dribbble.com/userupload/17485458/file/original-14df872c516d361bb61de8ea029df5d8.png?resize=1024x1448"
+            alt=""
+            className="post-author-image"
+          />
+          <div className="post-author-infor">
+            <h4 className="post-author-name">By MrThanh</h4>
+            <time dateTime="" className="post-author-time">Just now</time>
+          </div>
+        </a>
+      </div>
+      <div className="post-item">
+        <a href="/" className="post-media">
+          <img
+            src="https://cdn.dribbble.com/userupload/17474398/file/original-636d2679cca02654092ec05b47ca1db0.png?resize=1024x770"
+            alt=""
+            className="post-image"
+          />
+        </a>
+        <a href="/" className="post-category">Shop</a>
+        <h3>
+          <a href="post.html?id=3" className="post-title">
+            How to choose the best bike for spring in Australia
+          </a>
+        </h3>
+        <p className="post-desc">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis,
+          voluptatem? Quaerat, itaque fugit voluptate, eveniet animi aliquam non
+          quisquam ipsum soluta nisi magni expedita inventore facilis maiores
+          repudiandae, ullam nihil!
+        </p>
+        <a href="/" className="post-author">
+          <img
+            src="https://cdn.dribbble.com/userupload/17485458/file/original-14df872c516d361bb61de8ea029df5d8.png?resize=1024x1448"
+            alt=""
+            className="post-author-image"
+          />
+          <div className="post-author-infor">
+            <h4 className="post-author-name">By MrThanh</h4>
+            <time dateTime="" className="post-author-time">Just now</time>
+          </div>
+        </a>
+      </div>
       {/* Add more posts as necessary */}
     </div>
   </div>

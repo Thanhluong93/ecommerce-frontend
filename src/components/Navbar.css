@@ -116,3 +116,79 @@ logo {
   color: crimson;
 }
 /* END Header */
+@media (max-width: 768px) {
+  /* Ẩn toàn bộ menu khi ở mobile */
+  #main-menu {
+    display: none !important;
+  }
+
+  /* Canh giữa logo */
+  .container {
+    justify-content: center;
+  }
+}
+/* ----------------------------------  */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  left: 15px;
+  top: 6px;
+  z-index: 1001;
+}
+.mobile-menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  border-radius: 3px;
+}
+#mobile-menu {
+  position: fixed;
+  top: 34px;
+  left: -100%;
+  width: 30%;
+  height: 100%;
+  background-color: #646161;
+  z-index: 1000;
+  padding: 30px 20px 20px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+#mobile-menu.show {
+  left: 0;
+  list-style: none;
+}
+
+
+#mobile-menu li {
+  margin-bottom: 10px;
+}
+#mobile-menu li a {
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  #logo {
+    margin: 0 auto;
+    z-index: 1001;
+  }
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.3);
+  z-index: 999;
+}
+

@@ -129,3 +129,35 @@ font-family: "Poppins", sans-serif;
     word-break: break-word;
 }
 /* END Bai Viet CSS */
+@media (max-width: 768px) {
+    /* Hiển thị post-feature dạng cột dọc */
+    .post-feature {
+      grid-template-columns: 1fr;
+      grid-gap: 30px 0;
+    }
+
+    /* Căn giữa nội dung trong post-feature */
+    .post-feature > * {
+      justify-self: center;
+    }
+
+    /* Hiển thị post-list dạng cột dọc */
+    .post-list {
+      grid-template-columns: 1fr;
+      grid-gap: 30px 0;
+    }
+
+    /* Giảm chiều cao hình ảnh cho phù hợp mobile */
+    .post-image {
+      height: 200px;
+    }
+
+    .post-feature-image {
+      height: 250px;
+    }
+
+    /* Giảm cỡ chữ tiêu đề */
+    .post-feature-title {
+      font-size: 24px;
+    }
+  }
