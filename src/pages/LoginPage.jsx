@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+
 import "./LoginPage.css"; // Đừng quên import CSS riêng
 
 function LoginPage() {
+  const { login } = useContext(AuthContext);
+
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // 👈 dùng để chuyển hướng
@@ -10,19 +16,16 @@ function LoginPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email === "admin@example.com" && password === "123456") {
-        const user = {
-          name: "Admin",
-          email: email,
-        };
-
-        // ✅ Lưu vào localStorage
-        localStorage.setItem("user", JSON.stringify(user));
-
-        alert("Đăng nhập thành công!");
-        navigate("/");
-      } else {
-        alert("Sai tài khoản hoặc mật khẩu!");
-      }
+      login({
+        name: "Nguyễn Văn Thanh",
+        email: "luong6011@gmail.com",
+        phone: "0987654321",
+        avatar: "/images/anh5.jpg"
+      });
+      navigate("/");
+    } else {
+      alert("Sai tài khoản hoặc mật khẩu!");
+    }
   };
 
   return (

@@ -221,22 +221,24 @@ nav .login-button button {
   gap: 10px;
   list-style: none;
   top: 10px;
+
 }
 
 #main-menu .user-name {
   font-weight: bold;
   color: #fff;
-  text-transform: uppercase;
+  margin-top: 20px;
+  margin-left: 228px;
 }
 
 #main-menu .logout-button {
   padding: 5px 10px;
-  background-color: #e74c3c;
-  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
+  margin-top: 14px;
+  margin-left: 3px;
 }
 
 #main-menu .logout-button:hover {

@@ -4,11 +4,15 @@ import { createRoot } from "react-dom/client"; // ✅ thêm dòng này
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+
 
 import "./Navbar.css";
-const user = JSON.parse(localStorage.getItem("user"));
 
 export default function Header() {
+  const { user, logout } = useContext(AuthContext);
+
   useEffect(() => {
     const hasChildLinks = document.querySelectorAll("li.has-child > a");
 
@@ -45,7 +49,7 @@ export default function Header() {
     {user ? (
   <li className="login-button">
     <span>👋 {user.name}</span>
-    <button onClick={() => { localStorage.removeItem("user"); window.location.reload(); }}>Đăng xuất</button>
+    <button onClick={logout}>Đăng xuất</button>
   </li>
 ) : (
   <li className="login-button">
@@ -90,14 +94,18 @@ export default function Header() {
             </li>
             <li><Link to="/contact">Liên hệ</Link></li>
             <li><Link to="/register">Đăng ký</Link></li>
+
             {user ? (
-  <li className="use-infor">
-    <span className="user-name">👤 {user.name}</span>
-    <button className="logout-button" onClick={() => { localStorage.removeItem("user"); window.location.reload(); }}>Đăng xuất</button>
-  </li>
-) : (
-  <li><Link to="/login">Đăng nhập</Link></li>
-)}
+           <Link to="/profile" className="user-name" >👤 {user.name}</Link>
+
+              )
+              : (
+
+                <li><Link to="/login">Đăng nhập</Link></li>
+              )}
+              {user?.name === "Admin" && (
+                <li><Link to="/profile">Quản trị</Link></li>
+              )}
 
           </ul>
         </nav>
