@@ -23,7 +23,7 @@ export default function RegisterPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch("http://localhost:3002/register", {
+    fetch("https://ecommerce-backend-1-m1ll.onrender.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
