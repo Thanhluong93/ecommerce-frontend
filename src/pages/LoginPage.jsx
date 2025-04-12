@@ -14,7 +14,7 @@ function LoginPage() {
     e.preventDefault();
 
     // Gửi yêu cầu đăng nhập đến backend
-    fetch("http://localhost:3002/login", {
+    fetch(`${process.env.REACT_APP_API_URL}/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
