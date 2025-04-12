@@ -8,6 +8,7 @@ import ArticleDetail from './pages/ArticleDetail';
 import { AuthProvider } from "./context/AuthContext"; // ✅ THÊM DÒNG NÀY
 import PrivateRoute from "./components/PrivateRoute";
 import ProfilePage from "./pages/ProfilePage"; // ✅ Trang profile bạn sẽ tạo
+import RegisterPage from "./pages/RegisterPage"; // Import trang đăng ký
 
 import './App.css';
 
@@ -30,7 +31,7 @@ function AppContent() {
                 <ProfilePage />
               </PrivateRoute>
             } />
-
+            <Route path="/register" element={<RegisterPage />} />
           </Routes>
         </main>
         {!hideLayout && <Footer />}

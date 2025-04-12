@@ -47,10 +47,16 @@ export default function Header() {
     <li><Link to="#">LAN</Link></li>
     <li><Link to="#">Laptop</Link></li>
     {user ? (
-  <li className="login-button">
-    <span>👋 {user.name}</span>
-    <button onClick={logout}>Đăng xuất</button>
-  </li>
+    <li className="login-button">
+      <span>
+        👋
+        <Link to="/profile">
+          {user.name}
+        </Link>
+      </span>
+      <button onClick={logout}>Đăng xuất</button>
+    </li>
+
 ) : (
   <li className="login-button">
     <Link to="/login">
@@ -59,13 +65,15 @@ export default function Header() {
     </Link>
   </li>
 )}
-
   </ul>
-
   {isMobileMenuOpen && (
-  <div className="overlay" onClick={() => setIsMobileMenuOpen(false)}></div>
-)}
-
+    <div
+      className="overlay"
+      onClick={() =>
+      setIsMobileMenuOpen(false)}>
+    </div>
+  )}
+                      {/* Menu PC  */}
           <Link to="/" id="logo">
             <img src="/images/logo.png" alt="Thanhluong.vn" />
           </Link>

@@ -2,30 +2,38 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-
 import "./LoginPage.css"; // Đừng quên import CSS riêng
 
 function LoginPage() {
   const { login } = useContext(AuthContext);
-
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate(); // 👈 dùng để chuyển hướng
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (email === "admin@example.com" && password === "123456") {
-      login({
-        name: "Nguyễn Văn Thanh",
-        email: "luong6011@gmail.com",
-        phone: "0987654321",
-        avatar: "/images/anh5.jpg"
+
+    // Gửi yêu cầu đăng nhập đến backend
+    fetch("http://localhost:3002/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.id) {
+          login(data); // Lưu thông tin người dùng vào Context API
+          navigate("/"); // Về trang chủ sau khi đăng nhập thành công
+        } else {
+          alert("Sai tài khoản hoặc mật khẩu!");
+        }
+      })
+      .catch((error) => {
+        console.error("Lỗi đăng nhập:", error);
+        alert("Đã xảy ra lỗi khi đăng nhập. Vui lòng thử lại.");
       });
-      navigate("/");
-    } else {
-      alert("Sai tài khoản hoặc mật khẩu!");
-    }
   };
 
   return (
