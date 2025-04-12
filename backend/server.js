@@ -6,7 +6,15 @@ const bcrypt = require("bcryptjs");
 const { body, validationResult } = require("express-validator");
 
 const app = express();
-app.use(cors());
+
+// ✅ Cấu hình CORS cho phép frontend trên Vercel truy cập backend
+app.use(cors({
+  origin: [
+    "http://localhost:3000", // để test local
+    "https://ecommerce-frontend-indol-sigma.vercel.app/" // domain frontend trên Vercel của bạn
+  ]
+}));
+
 app.use(express.json());
 
 // Sử dụng đường dẫn tuyệt đối để truy cập users.json
@@ -23,9 +31,7 @@ app.post("/login", (req, res) => {
   const { email, password } = req.body;
   const users = JSON.parse(fs.readFileSync(USERS_FILE, "utf8"));
 
-  const matchedUser = users.find(
-    (user) => user.email === email
-  );
+  const matchedUser = users.find(user => user.email === email);
 
   if (!matchedUser) {
     return res.status(401).json({ message: "Sai tài khoản hoặc mật khẩu!" });
@@ -41,7 +47,6 @@ app.post("/login", (req, res) => {
       return res.status(401).json({ message: "Sai tài khoản hoặc mật khẩu!" });
     }
 
-    // Trả về thông tin người dùng nếu mật khẩu đúng
     res.json(matchedUser);
   });
 });
@@ -50,7 +55,7 @@ app.post("/login", (req, res) => {
 app.put("/data/users/:id", (req, res) => {
   const users = JSON.parse(fs.readFileSync(USERS_FILE, "utf8"));
   const id = parseInt(req.params.id);
-  const index = users.findIndex((u) => u.id === id);
+  const index = users.findIndex(u => u.id === id);
 
   if (index !== -1) {
     users[index] = { ...users[index], ...req.body };
@@ -65,7 +70,6 @@ app.put("/data/users/:id", (req, res) => {
 app.post("/register", [
   body("email").isEmail().withMessage("Email không hợp lệ"),
   body("password").isLength({ min: 6 }).withMessage("Mật khẩu phải có ít nhất 6 ký tự"),
-  // Kiểm tra các trường khác nếu cần
 ], (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -75,32 +79,26 @@ app.post("/register", [
   const { name, email, phone, password } = req.body;
   const users = JSON.parse(fs.readFileSync(USERS_FILE, "utf8"));
 
-  // Kiểm tra xem email đã tồn tại chưa
-  const existingUser = users.find((user) => user.email === email);
+  const existingUser = users.find(user => user.email === email);
   if (existingUser) {
     return res.status(400).json({ message: "Email đã được đăng ký!" });
   }
 
-  // Hash mật khẩu trước khi lưu
   bcrypt.hash(password, 10, (err, hashedPassword) => {
     if (err) {
       return res.status(500).json({ message: "Có lỗi xảy ra khi hash mật khẩu" });
     }
 
-    // Thêm người dùng mới vào danh sách
     const newUser = {
       id: users.length + 1,
       name,
       email,
       phone,
-      password: hashedPassword, // Lưu mật khẩu đã được hash
+      password: hashedPassword
     };
 
     users.push(newUser);
-
-    // Lưu lại vào file
     fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2));
-
     res.status(201).json(newUser);
   });
 });

@@ -46,6 +46,7 @@ export default function Header() {
     <li><Link to="/contact">Liên hệ</Link></li>
     <li><Link to="#">LAN</Link></li>
     <li><Link to="#">Laptop</Link></li>
+    <li><Link to="/register">Đăng ký</Link></li>
     {user ? (
     <li className="login-button">
       <span>
