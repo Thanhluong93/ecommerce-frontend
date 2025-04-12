@@ -11,7 +11,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:3000", // để test local
-    "https://ecommerce-frontend-indol-sigma.vercel.app/" // domain frontend trên Vercel của bạn
+    "https://ecommerce-frontend-indol-sigma.vercel.app" // domain frontend trên Vercel của bạn
   ]
 }));
 

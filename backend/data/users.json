@@ -21,5 +21,12 @@
     "email": "nghiemhc@gmail.com",
     "phone": "0948484734",
     "password": "$2b$10$c2W2Iti8rwbgUMndarc1V.lYYliCW5ZO1VdN/aTfg0RSbtfbacLZy"
+  },
+  {
+    "id": 4,
+    "name": "Tran Van Thanh",
+    "email": "admin12@gmail.com",
+    "phone": "544854580",
+    "password": "$2b$10$.ZA/Kt4RjB6l4L0sqX6X/.SpLT3kAjYwuDAKbVm2pIbBZd/w.ys0O"
   }
 ]
